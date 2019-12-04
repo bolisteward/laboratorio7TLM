@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="Datos personales" />
+
+    <TextView
+        android:id="@+id/text_Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Nombres" />
+
+    <EditText
+        android:id="@+id/edit_Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:inputType="textPersonName"
+        android:text="Nombres" />
+
+    <TextView
+        android:id="@+id/text_Apellidos"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:text="Apellidos" />
+
+    <EditText
+        android:id="@+id/edit_Apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Apellidos" />
+
+    <TextView
+        android:id="@+id/text_Telefono"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:text="Telefono" />
+
+    <EditText
+        android:id="@+id/edit_Telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Telefono" />
+
+    <TextView
+        android:id="@+id/text_Mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Correo Electronico:" />
+
+    <EditText
+        android:id="@+id/edit_Mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:inputType="textPersonName"
+        android:text="mail@ejemplo.com" />
+
+    <Button
+        android:id="@+id/btn_Enviar"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:onClick="enviar"
+        android:text="ENVIAR" />
+
+</LinearLayout>
