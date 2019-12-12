@@ -13,39 +13,34 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText edit_Nombres, edit_Apellidos, edit_Telefono, edit_Mail;
-    Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edit_Nombres = (EditText)findViewById(R.id.edit_Nombre);
-        edit_Apellidos = (EditText)findViewById(R.id.edit_Apellidos);
-        edit_Telefono = (EditText)findViewById(R.id.edit_Telefono);
-        edit_Mail = (EditText)findViewById(R.id.edit_Mail);
+
+        edit_Nombres = findViewById(R.id.edit_Nombres);
+        edit_Apellidos = findViewById(R.id.edit_Apellidos);
+        edit_Telefono = findViewById(R.id.edit_Telefono);
+        edit_Mail = findViewById(R.id.edit_Mail);
     }
 
     public void enviar (View v) {
-        String[] to = {"cvaccaro@espol.edu.ec"};
-        String[] cc = {"cvaccaro@fiec.espol.edu.ec"};
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
-        emailIntent.putExtra(Intent.EXTRA_CC, cc);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Formulario de Registro PST");
+        Bundle info = new Bundle();
 
+        if (edit_Nombres.getText() != null && edit_Apellidos.getText() != null && edit_Telefono.getText()!= null &&
+                edit_Mail.getText()!= null){
+            System.out.println(edit_Nombres.getText().toString());
+            info.putString("Nombres", edit_Nombres.getText().toString());
+            info.putString("Apellidos",  edit_Apellidos.getText().toString());
+            info.putString("Telefono", edit_Telefono.getText().toString());
+            info.putString("Correo",  edit_Mail.getText().toString());
 
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Datos de Contacto\n" +
-                "Nombres:" + edit_Nombres.getText().toString() + "\n" +
-                "Apellidos:" + edit_Apellidos.getText().toString() + "\n" +
-                "Teléfono:" + edit_Telefono.getText().toString() + "\n" +
-                "Correo Electrónico:" + edit_Mail.getText().toString() + "\n");
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Enviando Email"));
-            Log.i("termina envio de email", "");
-        }catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MainActivity.this, "No existe cliente Email instalado.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent( this, Main2Activity.class);
+            intent.putExtra("info", info);
+            startActivity(intent);
+        } else{
+            Toast.makeText(this, "Falta ingresar campos, verifique y velva a intentar.", Toast.LENGTH_SHORT).show();
         }
     }
 }
